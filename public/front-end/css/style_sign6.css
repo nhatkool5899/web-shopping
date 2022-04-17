@@ -1,0 +1,306 @@
+/* .ocean{
+    max-width: 100%;
+    overflow: hidden;
+    background-color: var(--white-color);
+} */
+
+:root{
+    --primary-color: rgb(63,208,212);
+    --black-color: black;
+    --white-color:#fff;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.modal-sign{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 990;
+    display: none;
+}
+
+.show-sign{
+    display: block;
+}
+
+@keyframes modalShow {
+    from{
+        top: -200px;
+        opacity: 0;
+    }
+    to{
+        top:0;
+        opacity: 1;
+    }
+}
+
+.modal-inner{
+    position: relative;
+    top: 20px;
+    width: 70%;
+    margin: auto;
+    animation: modalShow 0.3s linear;
+    background: wheat;
+}
+
+.login-close{
+    position: absolute;
+    top: -80px;
+    right: -20px;
+}
+
+#btn-close-login{
+    padding: 2px 10px;
+    color: #000;
+    font-weight: 600;
+    border: none;
+}
+
+
+.check-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: var(--primary-color);
+    transition: 0.5s;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+    background:linear-gradient(rgb(0, 238, 255), rgb(10, 199, 189));
+}
+.check-login.active{
+    background-color: #f43648;
+}
+/* .title-note{
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(7, 0, 0);
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    top: -7%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: none;
+} */
+.container-sign{
+    position: relative;
+    margin: 18px;
+    width: 97%;
+    height: 500px;
+}
+
+.primary-bg{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 40px;
+    width: 98%;
+    height: 420px;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+}
+
+.primary-bg .box{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.primary-bg .box h2{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.primary-bg .box button{
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+}
+.formBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+.formBx.active{
+    left:  50%;
+}
+
+.formBx .form{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+}
+.formBx .signinForm{
+    transition-delay: 0.25s;
+}
+.formBx.active .signinForm{
+    left: -100%;
+    transition-delay: 0s;
+}
+.formBx .signupForm{
+    transition-delay: 0s;
+    left: 100%;
+}
+.formBx.active .signupForm{
+    transition-delay: 0.25s;
+    left: 0;
+}
+.formBx .form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formBx .form form h3{
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.formBx .form form .form-group input{
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid rgb(22, 110, 10);
+}
+.formBx .form form .form-group .form-message{
+    margin-top: -16px;
+    margin-bottom: 16px;
+    display: block;
+}
+.formBx .form form .form-group .form-submit{
+    display: block;
+    background-color: var(--primary-color);
+    border: none;
+    min-width: 100px;
+    padding: 12px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    text-transform: capitalize;
+}
+.formBx.active .signupForm .form-group .form-submit{
+    display: block;
+    background-color: #f43648;
+}
+.formBx .form form{
+    color: #333;
+}
+
+.signinForm h4{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.signupForm h4{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.forgot{
+    font-size: 16px;
+    font-weight: 500;
+    color: #163264;
+}
+
+.forgot:hover{
+    color: #f43648;
+}
+
+/* invalid */
+.form-group.invalid .form-message{
+    color: #f43648;
+    font-size: 12px;
+}
+.form-group.invalid input{
+    border: 1px solid #f43648 !important;
+}
+
+.box-message{
+    display: none;
+}
+
+.show-error-message{
+    display: inline-block;
+    color: firebrick;
+}
+
+/****************Day Night****************/
+
+.app-container{
+    width: 100%;
+    background: #111;
+}
+
+.category-products-dark{
+    background: #16605a;
+}
+
+.category-products-dark .sidebar-title{
+    color: #fff;
+}
+
+.category-products-dark .panel-default .panel-heading{
+    background: #16605a;
+}
+
+.category-products-dark .panel-default .panel-heading .panel-title a{
+    color: #fff;
+}
+
+.dayNight{
+    position: relative;
+    top: -57px;
+    right: 20px;
+}
+
+.day-icon{
+    font-size: 20px;
+    padding: 0 12px;
+    display: none;
+    line-height: 47px;
+    cursor: pointer;
+}
+
+.day-icon:hover{
+    background-color: #fff;
+}
+
+.active-dayNight{
+    display: block;
+}
